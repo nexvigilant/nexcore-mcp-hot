@@ -1,0 +1,29 @@
+
+[package]
+name = "nexcore-mcp-hot"
+version = "1.0.0"
+edition = "2024"
+rust-version = "1.85"
+authors = ["NexVigilant Team <team@nexvigilant.com>"]
+license = "LicenseRef-Proprietary"
+description = "MCP server hot-reload proxy — auto-restarts child on binary change"
+
+[[bin]]
+name = "nexcore-mcp-hot"
+path = "src/main.rs"
+
+[dependencies]
+nexcore-stdio-proxy = { version = "1.0.0", path = "../nexcore-stdio-proxy", registry = "nexcore" }
+tokio = { version = "1.38.0", features = ["full"] }
+serde_json = { version = "1.0.120" }
+tracing = { version = "0.1.40" }
+tracing-subscriber = { version = "0.3.18", features = ["env-filter"] }
+clap = { version = "4.5.11", features = ["derive", "cargo", "env"] }
+nexcore-error = { workspace = true }
+
+[dev-dependencies]
+tempfile = { version = "3.10.1" }
+
+
+[lints]
+workspace = true
